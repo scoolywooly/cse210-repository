@@ -41,7 +41,7 @@ class Program
             theJournal.SaveToFile(savedFileName);
         } else if (choice == 3) { // Load a string containing entry information to be converted to Entry classes and then saved to the _entries list for display.
 
-            Console.WriteLine("Name the file including the directory. ( ./Documents/example.txt)");
+            Console.WriteLine("Name the file including the directory. ( .\\journal\\example.txt  is the local save directoy, use / if on a mac or linux)");
             Console.Write(">");
             string filepath = Console.ReadLine();
 
