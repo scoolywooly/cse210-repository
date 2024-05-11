@@ -1,5 +1,5 @@
 public class Prompt {
-    public List<string> _prompts;
+    private List<string> _prompts = new List<string>();
 
     public string GetRandomPrompt() {
         Random rnd = new Random();
@@ -8,5 +8,9 @@ public class Prompt {
         string prompt = _prompts[rnd.Next(0, promptLength)];
 
         return prompt;
+    }
+
+    public void SetPromptList(string prompt) {
+        _prompts.Add(prompt);
     }
 }

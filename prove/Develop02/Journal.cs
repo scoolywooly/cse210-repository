@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 
 public class Journal {
-    public List<Entry> _entries;
+    private List<Entry> _entries;
 
     public Journal() {
         this._entries = new List<Entry>();
@@ -14,17 +14,24 @@ public class Journal {
         DateTime currentTimeAndDate = DateTime.Now;
         string currentDate = currentTimeAndDate.ToString("MM/dd/yyyy");
         //Now I set the date to the _date member variable.
-        newEntry._date = currentDate;
+        newEntry.SetDate(currentDate);
 
         Prompt currentPrompt = new Prompt();
-        currentPrompt._prompts = ["What do you regret?", "What are you proud of?", "What do you look forward to?", "What or who do you miss?", "How did the hand of the Lord act in your life, today?"];
-        newEntry._promptString = currentPrompt.GetRandomPrompt();
+        
+        currentPrompt.SetPromptList("What do you regret?");
+        currentPrompt.SetPromptList("What are you proud of?");
+        currentPrompt.SetPromptList("What or who do you miss?");
+        currentPrompt.SetPromptList("How did the hand of the Lord act in your life, today?");
+        currentPrompt.SetPromptList("How will you accomplish your dreams?");
+
+        string newPrompt = currentPrompt.GetRandomPrompt();
+        newEntry.SetPrompt(newPrompt);
 
 
         //Get the text for the Entry
-        Console.WriteLine(newEntry._promptString);
+        Console.WriteLine(newEntry.GetPrompt());
         Console.WriteLine(">");
-        newEntry._entryText = Console.ReadLine();
+        newEntry.SetEntryText(Console.ReadLine());
         
         this._entries.Add(newEntry); // now we add the whole entry instance to the list
         
@@ -43,9 +50,9 @@ public class Journal {
         string allEntries = "";
 
         foreach (Entry singleEntry in this._entries) {
-            string text = singleEntry._entryText;
-            string date = singleEntry._date;
-            string prompt = singleEntry._promptString;
+            string text = singleEntry.GetEntryText();
+            string date = singleEntry.GetDate();
+            string prompt = singleEntry.GetPrompt();
 
             allEntries += $"{date}|||{prompt}|||{text}+++"; // +++ is my separator for my load function
             
@@ -98,9 +105,9 @@ public class Journal {
 
             string[] entryInfo = entry.Split("|||");
 
-            loadedEntry._date = entryInfo[0];
-            loadedEntry._promptString = entryInfo[1];
-            loadedEntry._entryText = entryInfo[2];
+            loadedEntry.SetDate(entryInfo[0]);
+            loadedEntry.SetPrompt(entryInfo[1]);
+            loadedEntry.SetEntryText(entryInfo[2]);
 
             this._entries.Add(loadedEntry);
             }
