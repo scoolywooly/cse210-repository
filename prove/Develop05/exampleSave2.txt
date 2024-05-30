@@ -1,0 +1,2 @@
+317||||
+SimpleGoal|||Did it work?|||Checking if loading the games total score workds|||100|||True,,,SimpleGoal|||blef|||bla|||1|||True,,,EternalGoal|||asdf|||asfd|||1|||1,,,

@@ -4,6 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop05 World!");
+        // Create a Goal manager object
+        // Call the start function on that object.
+        GoalManager gm = new GoalManager();
+        gm.Start();
     }
 }

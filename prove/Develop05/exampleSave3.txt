@@ -1,0 +1,2 @@
+540||||
+SimpleGoal|||Did it work?|||Checking if loading the games total score workds|||100|||True,,,SimpleGoal|||blef|||bla|||1|||True,,,EternalGoal|||asdf|||asfd|||1|||1,,,ChecklistGoal|||Checking the Checking|||the Checking the|||123|||2|||2|||100|||True,,,
