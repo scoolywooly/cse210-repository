@@ -5,6 +5,7 @@ public class Video
     private string _title;
     private string _author;
     private int _length;
+    private int _commentAmount;
     private int _id;
 
     protected List<Comment> _comments = new List<Comment>();
@@ -15,6 +16,7 @@ public class Video
         _length = length;
         _id = videoID;
         setComments(videoID);
+        _commentAmount = _comments.Count();
         
     }
 
@@ -33,7 +35,7 @@ public class Video
         string videoName = getTitle();
         int videoLength = getLength();
         
-        Console.WriteLine($"----------\nAuthor: {videoAuthor}\nVideo: {videoName}\nLength in seconds: {videoLength}\nComments: \n");
+        Console.WriteLine($"----------\nAuthor: {videoAuthor}\nVideo: {videoName}\nLength in seconds: {videoLength}\nComment Count: {_commentAmount}\nComments: \n");
         foreach (Comment currentComment in _comments) {
             
             Console.WriteLine($"Commenter: {currentComment.getName()} \nComment Text: {currentComment.getText()}\n");
