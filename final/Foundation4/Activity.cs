@@ -8,16 +8,17 @@ public abstract class Activity {
         _length = minutes;
     }    
 
-    public abstract double getDistance();
-    public abstract double getPace();
-    public abstract double getSpeed();
-
-    public string getDate() {
-        return _date;
-    } 
-    public double getMinues() {
-        return _length;
+    public virtual double getDistance() {
+        return getPace() * _length;
     }
+    public virtual double getPace() {
+        return _length / getDistance();
+    }
+    public virtual double getSpeed() {
+        return getDistance() / _length * 60.00;
+    }
+
+    
 
     public virtual string GetSummary() {
         return $"Date: {_date}, Length: {_length} Minutes,";

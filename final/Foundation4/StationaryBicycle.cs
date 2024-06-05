@@ -19,13 +19,7 @@ public class StationaryBicycle : Activity{
         return 60.00 / _speed;
     }
 
-    public override double getDistance()
-    {
-        // D = rT the classic Dirt formula for calculating distance by using rate (pace) and time (length)
-        double rate = getPace();
-
-        return rate * _length;
-    }
+    
     public override string GetSummary()
     {
         return $"Stationary Bicycle Activity details:\n Date: {_date}, Length: {Math.Truncate(_length * 100) /100} - Minutes, Distance: {Math.Truncate(getDistance() * 100) /100} miles, Pace: {Math.Truncate(getPace() * 100)}, Speed: {Math.Truncate(getSpeed() * 100) /100}";

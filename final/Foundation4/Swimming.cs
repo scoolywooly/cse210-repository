@@ -17,10 +17,7 @@ public class Swimming : Activity{
     {
         return _length / getDistance();
     }
-    public override double getSpeed()
-    {
-        return getDistance() / _length * 60.00;
-    }
+    
 
     public override string GetSummary()
     {
